@@ -1,10 +1,13 @@
 import React from 'react';
 
 import { styled } from '@mui/material/styles';
-import Button from '@mui/material/Button';
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
+import Button from '@mui/material/Button';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+
 import TextField from '@mui/material/TextField';
 
 import InputLabel from '@mui/material/InputLabel';
@@ -12,18 +15,14 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+import Fab from '@mui/material/Fab';
+import SmsIcon from '@mui/icons-material/Sms';
+
 const Create = () => {
     const iconStyle = {
         color: '#1ED760',
         fontSize: '30px',
     };
-
-    /*const headerStyle = {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '20px',
-    };*/
 
     const headerStyle = {
         position: 'fixed',
@@ -44,7 +43,7 @@ const Create = () => {
     }
 
     const containerStyle = {
-        margin: '80px 20px 30px 20px',
+        margin: '80px 30px 30px 30px',
     };
 
     const titleStyle = {
@@ -169,10 +168,18 @@ const Create = () => {
                 </div>
 
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '30px 0px 0px 0px' }}>
-                    <Button variant="contained" style={{ backgroundColor: '#1ED760', height:'50px', fontSize: '20px', fontWeight: 'bold'}} fullWidth>
+                    <Button variant="contained" style={{ backgroundColor: '#1ED760', height: '50px', fontSize: '20px', fontWeight: 'bold' }} fullWidth>
                         Submit
                     </Button>
                 </div>
+
+                <Fab
+                    aria-label="chat"
+                    style={{ position: 'fixed', bottom: 0, right: 0, margin: '16px', backgroundColor: '#FFFFFF' }}
+                >
+                    <SmsIcon style={iconStyle} />
+                </Fab>
+
 
             </div>
 
