@@ -1,8 +1,5 @@
 import React from 'react';
 
-import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import HeadphonesIcon from '@mui/icons-material/Headphones';
 import ShareIcon from '@mui/icons-material/Share';
@@ -20,25 +17,7 @@ const Detail = () => {
         fontSize: '30px',
         margin: '0px 10px 0px 10px',
     };
-
-    const headerStyle = {
-        position: 'fixed',
-        top: 0,
-        width: '100%',
-        height: '60px',
-        backgroundColor: 'white',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        zIndex: 1,
-    };
-
-    const headertextStyle = {
-        color: 'black',
-        fontWeight: 'bold',
-        fontSize: '24px',
-    }
-
+    
     const containerStyle = {
         margin: '80px 30px 30px 30px',
     };
@@ -136,12 +115,7 @@ const Detail = () => {
 
     return (
         <div>
-            <div style={headerStyle}>
-                <MenuIcon style={{ ...iconStyle, paddingLeft: '20px' }} />
-                <div style={headertextStyle}>Together Music Town</div>
-                <AccountCircleIcon style={{ ...iconStyle, paddingRight: '20px' }} />
-            </div>
-
+            
             <div style={containerStyle}>
                 <div style={contentStyle}>
                     <div style={squareStyle}>

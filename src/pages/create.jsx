@@ -2,9 +2,6 @@ import React from 'react';
 
 import { styled } from '@mui/material/styles';
 
-import MenuIcon from '@mui/icons-material/Menu';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
 import Button from '@mui/material/Button';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
@@ -24,23 +21,6 @@ const Create = () => {
         fontSize: '30px',
     };
 
-    const headerStyle = {
-        position: 'fixed',
-        top: 0,
-        width: '100%',
-        height: '60px',
-        backgroundColor: 'white',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        zIndex: 1,
-    };
-
-    const headertextStyle = {
-        color: 'black',
-        fontWeight: 'bold',
-        fontSize: '24px',
-    }
 
     const containerStyle = {
         margin: '80px 30px 30px 30px',
@@ -94,11 +74,6 @@ const Create = () => {
 
     return (
         <div>
-            <div style={headerStyle}>
-                <MenuIcon style={{ ...iconStyle, paddingLeft: '20px' }} />
-                <div style={headertextStyle}>Together Music Town</div>
-                <AccountCircleIcon style={{ ...iconStyle, paddingRight: '20px' }} />
-            </div>
 
             <div style={containerStyle}>
                 <div>
