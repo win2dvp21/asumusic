@@ -115,11 +115,22 @@ const Create = () => {
                 </StyledButton>
 
                 <div>
+                    <div style={textStyle}>Selected Melody</div>
+                    <TextField id="outlined-basic" size="small" label="Melody NFT id" variant="outlined" fullWidth />
+                </div>
+
+                <div>
+                    <div style={textStyle}>Selected Lyrics</div>
+                    <TextField id="outlined-basic" size="small" label="Lyrics NFT id" variant="outlined" fullWidth />
+                </div>
+
+                <div>
                     <div style={textStyle}>Category</div>
                     <div style={descriptionStyle}>
                         This is the category where your item will appear.
                     </div>
                 </div>
+
 
                 <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">Select Category</InputLabel>
@@ -130,9 +141,9 @@ const Create = () => {
                         label="Select Category"
                         onChange={handleChange}
                     >
-                        <MenuItem value="Jazz">Jazz</MenuItem>
-                        <MenuItem value="Pop">Pop</MenuItem>
-                        <MenuItem value="Classic">Classic</MenuItem>
+                        <MenuItem value="Composition">Composition</MenuItem>
+                        <MenuItem value="Lyrics">Lyrics</MenuItem>
+                        <MenuItem value="Vocal">Vocal</MenuItem>
                     </Select>
                 </FormControl>
 
