@@ -207,6 +207,7 @@ const nftLists = [
   },
 ];
 
+
 const NFTItemContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -215,11 +216,24 @@ const NFTItemContainer = styled.div`
 `;
 
 const Main = () => {
-  const [clickedButtons, setClickedButtons] = useState([false, false, false, false, false, false]);
+  const [clickedButtons, setClickedButtons] = useState([true, false, false, true, false, false]);
 
   const handleClick = (index) => {
-    const newClickedButtons = [...clickedButtons];
-    newClickedButtons[index] = !newClickedButtons[index];
+    let newClickedButtons;
+
+    if (index === 4) {
+      // All 
+      newClickedButtons = [false, false, false, false, true, false];
+    } else if (index === 5) {
+      // Rhythm 
+      newClickedButtons = [false, false, false, false,  false, true];
+    } else if (index === 6) {
+      // Melody 
+      newClickedButtons = [false, false, false, false, false, false, true];
+    } else {
+      newClickedButtons = clickedButtons.map((_, i) => i === index ? true : i === 4 ? false : false);
+    }
+
     setClickedButtons(newClickedButtons);
   };
 
@@ -228,6 +242,21 @@ const Main = () => {
   const handleCreateClick = () => {
     navigate('/create');
   };
+
+  const filteredNfts = nftLists.filter((nft) => {
+    // 전체 버튼이 클릭된 경우 모든 NFT를 표시
+    if (clickedButtons[4] || clickedButtons[1] || clickedButtons[2] || clickedButtons[3]) return true;
+
+  
+    // Rhythm 또는 Melody 버튼이 클릭된 경우 해당하는 장르의 NFT만 표시
+    if ((clickedButtons[5] && nft.genre === '#rhythm') || (clickedButtons[6] && nft.genre === '#melody')) {
+      return true;
+    }
+  
+    // 그 외의 경우 필터링하지 않고 숨김
+    return false;
+  });
+  
 
   return (
     <Container>
@@ -246,10 +275,7 @@ const Main = () => {
       </TextContainer>
       <NFTItemContainer>
         {nfts.map((nft) => (
-          <Popular
-            key={nft.id}
-            nft={nft}
-          />
+          <Popular key={nft.id} nft={nft} />
         ))}
       </NFTItemContainer>
       <div>
@@ -275,23 +301,18 @@ const Main = () => {
         </TextButton3>
       </div>
       <div>
-        {nftLists.map((nft) => (
-          <ListNFT
-            key={nft.id}
-            nft={nft}
-          />
+        {filteredNfts.map((nft) => (
+          <ListNFT key={nft.id} nft={nft} />
         ))}
       </div>
       <Fab
-          aria-label="add"
-          style={{ position: 'fixed', bottom: 0, right: 0, margin: '16px', backgroundColor: '#1ED760' }
-          } onClick={handleCreateClick}
-        >
+        aria-label="add"
+        style={{ position: 'fixed', bottom: 0, right: 0, margin: '16px', backgroundColor: '#1ED760' }}
+        onClick={handleCreateClick}
+      >
         <AddIcon style={iconStyle} />
       </Fab>
-      
     </Container>
-    
   );
 };
 
